@@ -46,7 +46,7 @@ void AddPatient()
     cout << "Enter the specialization and patient name and patient status : ";
     cin >> spec >> name >> s;
     // convert from 0 base to 1 base 
-    spec++;
+    spec--;
 
     // check if the specialization is full or not
     if (!(spec>=1&&spec<=20))
