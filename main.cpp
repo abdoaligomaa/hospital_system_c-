@@ -8,6 +8,9 @@ using namespace std;
  4- get next patient to the doctor
  5- exit the system
 */
+// array works as database 
+
+
 
 // menu function
 int menu()
