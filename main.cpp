@@ -14,9 +14,7 @@ string names[20][5];
 int status[20][5];
 
 // to show if the specialztion if full of patiens of not;
-int queue[20][1];
-
-
+int queue[20][1] = {0};
 
 // menu function
 int menu()
@@ -41,7 +39,26 @@ int menu()
 
 void AddPatient()
 {
-    cout << "AddPatient function" << endl;
+    int spec, s;
+    string name;
+
+    cout << "Enter the specialization and patient name and patient status : ";
+    cin >> spec >> name >> s;
+    // check if the specialization is full or not
+    if (queue[spec][1] >= 5)
+    {
+        cout << "This Specialization is full of patient , Sorry you can't add this patient\n";
+        cout << "**************************************************" << endl;
+        return;
+    }
+
+    // put data into arrays
+    status[spec][queue[spec][1]] = s;
+    names[spec][queue[spec][1]] = name;
+    // increament the queue
+    queue[spec][1]++;
+    cout << "Patient is added." << endl;
+    cout << "**************************************************" << endl;
 }
 
 void printAllPatien()
