@@ -11,7 +11,7 @@ using namespace std;
 // array works as database
 
 string names[20][5];
-int status[20][5];
+bool status[20][5];
 
 // to show if the specialztion if full of patiens of not;
 int queue[20][1] = {0};
@@ -39,12 +39,23 @@ int menu()
 
 void AddPatient()
 {
-    int spec, s;
+    int spec;
+    bool s;
     string name;
 
     cout << "Enter the specialization and patient name and patient status : ";
     cin >> spec >> name >> s;
+    // convert from 0 base to 1 base 
+    spec++;
+
     // check if the specialization is full or not
+    if (!(spec>=1&&spec<=20))
+    {
+        cout << "This Specialization not found you should enter number from 1 to 20\n";
+        cout << "**************************************************" << endl;
+        AddPatient();
+        
+    }
     if (queue[spec][1] >= 5)
     {
         cout << "This Specialization is full of patient , Sorry you can't add this patient\n";
