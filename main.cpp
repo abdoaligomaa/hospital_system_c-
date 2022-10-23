@@ -8,6 +8,15 @@ using namespace std;
  4- get next patient to the doctor
  5- exit the system
 */
+// array works as database
+
+string names[20][5];
+int status[20][5];
+
+// to show if the specialztion if full of patiens of not;
+int queue[20][1];
+
+
 
 // menu function
 int menu()
@@ -65,7 +74,7 @@ void MainProject()
         }
         else
         {
-            cout<<"The Program is exit"<<endl;
+            cout << "The Program is exit" << endl;
             break;
         }
     }
