@@ -29,6 +29,19 @@ void shiftRight(int spec, string name[], bool statu[])
     // increase number of patients in this specialization
     queue[spec][0]++;
 }
+// shift left function
+void shiftLeft(int spec, string name[], bool statu[])
+{
+    int len = queue[spec][0];
+
+    for (int i = 0; i <len; i++)
+    {
+        name[i] = name[i + 1];
+        statu[i] = statu[i + 1];
+    }
+    // increase number of patients in this specialization
+    queue[spec][0]++;
+}
 
 // menu function
 int menu()
