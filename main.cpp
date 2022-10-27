@@ -45,16 +45,15 @@ void AddPatient()
 
     cout << "Enter the specialization and patient name and patient status : ";
     cin >> spec >> name >> s;
-    // convert from 0 base to 1 base 
+    // convert from 0 base to 1 base
     spec--;
 
     // check if the specialization is full or not
-    if (!(spec>=1&&spec<=20))
+    if (!(spec >= 1 && spec <= 20))
     {
         cout << "This Specialization not found you should enter number from 1 to 20\n";
         cout << "**************************************************" << endl;
         AddPatient();
-        
     }
     if (queue[spec][1] >= 5)
     {
@@ -64,10 +63,20 @@ void AddPatient()
     }
 
     // put data into arrays
-    status[spec][queue[spec][1]] = s;
-    names[spec][queue[spec][1]] = name;
-    // increament the queue
-    queue[spec][1]++;
+
+    if (s == 0)
+    {
+        status[spec][queue[spec][1]] = s;
+        names[spec][queue[spec][1]] = name;
+        // increament the queue
+        queue[spec][1]++;
+    }else if (s==1)
+    {
+        // shift all specializaton to right and put the new patient in start 
+        
+        
+    }
+    
     cout << "Patient is added." << endl;
     cout << "**************************************************" << endl;
 }
