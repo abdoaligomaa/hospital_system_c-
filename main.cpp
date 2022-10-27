@@ -16,6 +16,20 @@ bool status[20][5];
 // to show if the specialztion if full of patiens of not;
 int queue[20][1] = {0};
 
+// shift right function
+void shiftRight(int spec, string name[], bool statu[])
+{
+    int len = queue[spec][0];
+
+    for (int i = len; i >= 1; i--)
+    {
+        name[i] = name[i - 1];
+        statu[i] = statu[i - 1];
+    }
+    // increase number of patients in this specialization
+    queue[spec][0]++;
+}
+
 // menu function
 int menu()
 {
@@ -70,19 +84,22 @@ void AddPatient()
         names[spec][queue[spec][1]] = name;
         // increament the queue
         queue[spec][1]++;
-    }else if (s==1)
-    {
-        // shift all specializaton to right and put the new patient in start 
-        
-        
     }
-    
+    else if (s == 1)
+    {
+        // shift all specializaton to right and put the new patient in start
+        shiftRight(spec, names[spec], status[spec]);
+        names[spec][0] = name;
+        status[spec][0] = s;
+    }
+
     cout << "Patient is added." << endl;
     cout << "**************************************************" << endl;
 }
 
 void printAllPatien()
 {
+
     cout << "printAllPatien function" << endl;
 }
 
