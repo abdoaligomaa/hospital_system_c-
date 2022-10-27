@@ -69,7 +69,7 @@ void AddPatient()
         cout << "**************************************************" << endl;
         return AddPatient();
     }
-    if (queue[spec][1] >= 5)
+    if (queue[spec][0] >= 5)
     {
         cout << "This Specialization is full of patient , Sorry you can't add this patient\n";
         cout << "**************************************************" << endl;
@@ -104,11 +104,13 @@ void printAllPatien()
         if (queue[i][0] == 0)
             continue;
         // print all patients for all specializations
-        cout<< "Patients in specailzation : "<<i+1<<endl;
-        for (int j=0;j<queue[i][0];j++){
-            cout<< "patient number : "<<j+1<< ", name :"<<names[i][j]<<", status : "<<status[i][j]<<endl; 
+        cout << "Patients in specailzation : " << i + 1 << endl;
+        for (int j = 0; j < queue[i][0]; j++)
+        {
+            cout << "patient number : " << j + 1 << ", name :" << names[i][j] << ", status : " << status[i][j] << endl;
         }
-        cout<<endl<<endl;
+        cout << endl
+             << endl;
     }
 
     // cout << "printAllPatien function" << endl;
