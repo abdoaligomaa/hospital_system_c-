@@ -34,13 +34,13 @@ void shiftLeft(int spec, string name[], bool statu[])
 {
     int len = queue[spec][0];
 
-    for (int i = 0; i <len; i++)
+    for (int i = 0; i < len; i++)
     {
         name[i] = name[i + 1];
         statu[i] = statu[i + 1];
     }
     // increase number of patients in this specialization
-    queue[spec][0]++;
+    queue[spec][0]--;
 }
 
 // menu function
@@ -131,7 +131,22 @@ void printAllPatien()
 
 void getNextPatient()
 {
-    cout << "getNextPatient function" << endl;
+    int spec;
+    cout << "Enter the specialization : ";
+    cin >> spec;
+    // convet from one base to zero base
+    spec--;
+    if (queue[spec][0] == 0)
+    {
+        cout << "This specialization is empty !!!!!!!!!!" << endl;
+        cout << "**************************************************" << endl;
+    }
+    else
+    {
+        shiftLeft(spec, names[spec], status[spec]);
+        cout << " The patient went to the doctor , DONE " << endl;
+        cout << "**************************************************" << endl;
+    }
 }
 
 void MainProject()
