@@ -63,11 +63,11 @@ void AddPatient()
     spec--;
 
     // check if the specialization is full or not
-    if (!(spec >= 1 && spec <= 20))
+    if (!(spec >= 0 && spec <= 19))
     {
         cout << "This Specialization not found you should enter number from 1 to 20\n";
         cout << "**************************************************" << endl;
-        AddPatient();
+        return AddPatient();
     }
     if (queue[spec][1] >= 5)
     {
@@ -80,10 +80,10 @@ void AddPatient()
 
     if (s == 0)
     {
-        status[spec][queue[spec][1]] = s;
-        names[spec][queue[spec][1]] = name;
+        status[spec][queue[spec][0]] = s;
+        names[spec][queue[spec][0]] = name;
         // increament the queue
-        queue[spec][1]++;
+        queue[spec][0]++;
     }
     else if (s == 1)
     {
