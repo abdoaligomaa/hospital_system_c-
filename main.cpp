@@ -9,7 +9,6 @@ using namespace std;
  5- exit the system
 */
 // array works as database
-
 string names[20][5];
 bool status[20][5];
 
@@ -47,7 +46,7 @@ void shiftLeft(int spec, string name[], bool statu[])
 int menu()
 {
     int TheChoice = -1;
-    cout << "Enter you choice" << endl;
+    cout << "**************  Enter you choice  *****************" << endl;
     cout << "1) Add new patient " << endl;
     cout << "2) Print all patients " << endl;
     cout << "3) Get the next patient " << endl;
@@ -57,7 +56,7 @@ int menu()
     cin >> TheChoice;
     if (!(TheChoice <= 4 && TheChoice >= 1))
     {
-        cout << "Your choice in incorrect!!!!!!, please try again " << endl;
+        cout << "Your choice in incorrect !!!!!!, please try again " << endl;
         cout << "**************************************************" << endl;
         return menu();
     }
@@ -70,8 +69,13 @@ void AddPatient()
     bool s;
     string name;
 
-    cout << "Enter the specialization and patient name and patient status : ";
-    cin >> spec >> name >> s;
+    cout << "Please Enter Patient Name : ";
+    cin >> name;
+    cout << "Please Enter The Specialization number : ";
+    cin >> spec;
+    cout << "Please Enter Patient status : ";
+    cin >> s;
+
     // convert from 0 base to 1 base
     spec--;
 
@@ -82,6 +86,7 @@ void AddPatient()
         cout << "**************************************************" << endl;
         return AddPatient();
     }
+
     if (queue[spec][0] >= 5)
     {
         cout << "This Specialization is full of patient , Sorry you can't add this patient\n";
@@ -90,7 +95,6 @@ void AddPatient()
     }
 
     // put data into arrays
-
     if (s == 0)
     {
         status[spec][queue[spec][0]] = s;
@@ -120,7 +124,7 @@ void printAllPatien()
         cout << "Patients in specailzation : " << i + 1 << endl;
         for (int j = 0; j < queue[i][0]; j++)
         {
-            cout << "patient number : " << j + 1 << ", name :" << names[i][j] << ", status : " << status[i][j] << endl;
+            cout << "patient number : " << j + 1 << " , name : " << names[i][j] << ", status : " << status[i][j] << endl;
         }
         cout << endl
              << endl;
@@ -138,13 +142,13 @@ void getNextPatient()
     spec--;
     if (queue[spec][0] == 0)
     {
-        cout << "This specialization is empty !!!!!!!!!!" << endl;
+        cout << "This Specialization is Empty , Please Take a Rest" << endl;
         cout << "**************************************************" << endl;
     }
     else
     {
         shiftLeft(spec, names[spec], status[spec]);
-        cout << " The patient went to the doctor , DONE " << endl;
+        cout << " The Patient went to the doctor , DONE " << endl;
         cout << "**************************************************" << endl;
     }
 }
